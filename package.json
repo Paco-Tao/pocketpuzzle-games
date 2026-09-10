@@ -1,0 +1,19 @@
+{
+  "name": "pocket-puzzle-h5-astro-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "validate:seo": "node scripts/validate-seo.mjs",
+    "quality": "npm run check && npm run build && npm run validate:seo"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "astro": "^7.2.10",
+    "typescript": "^6.0.3"
+  }
+}

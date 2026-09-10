@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GameCard from '../../components/GameCard.astro';
+import { categories, games, isGamePublishable } from '../../data/games';
+
+export function getStaticPaths() { return categories.map((category) => ({ params: { slug: category.slug }, props: { category } })); }
+const { category } = Astro.props;
+const collection = games.filter((game) => game.category === category.slug);
+const approvedCollection = collection.filter(isGamePublishable);
+const indexable = approvedCollection.length >= 6;
+---
+<BaseLayout title={`${category.name} - ${collection.length} Browser Games`} description={category.intro} canonicalPath={`/categories/${category.slug}/`} noindex={!indexable}>
+  <section class="hero"><p class="eyebrow">Game collection</p><h1>{category.name}</h1><p class="lede">{category.intro}</p></section>
+  <section><h2>Games in this collection</h2>{collection.length ? <div class="grid">{collection.map((game) => <GameCard game={game} />)}</div> : <p class="content-card">More puzzles are on the way.</p>}</section>
+</BaseLayout>

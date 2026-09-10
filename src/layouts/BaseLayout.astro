@@ -1,0 +1,40 @@
+---
+import '../styles/global.css';
+import { site } from '../data/games';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath?: string;
+  noindex?: boolean;
+  type?: 'website' | 'article';
+  image?: string;
+}
+
+const { title, description, canonicalPath = '/', noindex = false, type = 'website', image = `${site.url}/og-default.svg` } = Astro.props;
+const canonical = new URL(canonicalPath, site.url).toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml"/><title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {(noindex || new URL(site.url).hostname === '127.0.0.1') && <meta name="robots" content="noindex,follow" />}
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={image} />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <header class="site-header"><div class="shell header-inner"><a class="brand" href="/"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>{site.name}<span class="brand-period">.</span></a><nav aria-label="Primary navigation"><a href="/#puzzles">The puzzles</a><a href="/about/">About</a></nav><span class="header-note">A good kind of screen time.</span></div></header>
+    <main class="shell"><slot /></main>
+    <footer class="site-footer"><div class="shell footer-inner"><div><a class="footer-brand" href="/">{site.name}.</a><p>© {new Date().getFullYear()} {site.name}. Games by Zygomatic / HTMLGames.</p></div><nav aria-label="Footer navigation"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/copyright/">Game credits</a></nav></div></footer>
+  </body>
+</html>

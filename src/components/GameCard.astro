@@ -1,0 +1,7 @@
+---
+import type { Game } from '../data/games';
+import editorial from '../data/editorial.json';
+const { game, compact = false, index = 0 } = Astro.props as { game:Game; compact?:boolean; index?:number };
+const detail = editorial[game.slug as keyof typeof editorial];
+---
+<article class:list={['card',{compact},`tone-${index%6}`]}><a href={`/games/${game.slug}/`} class="card-link"><div class="card-art"><img src={game.imageUrl} alt={`${game.name} game artwork`} loading={index<3?'eager':'lazy'} width="500" height="300"/><span class="play-dot" aria-hidden="true">↗</span></div><div class="card-body"><span class="category-label">{detail?.kind||'Puzzle'} {game.name.startsWith('Daily')&&<span>· Daily puzzle</span>}</span><h3>{game.name}</h3><p>{detail?.short||game.description}</p><span class="card-cta">Play puzzle <span aria-hidden="true">→</span></span></div></a></article>

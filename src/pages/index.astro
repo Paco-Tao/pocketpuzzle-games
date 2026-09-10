@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GameCard from '../components/GameCard.astro';
+import { games, site } from '../data/games';
+---
+<BaseLayout title={`${site.name} — A little play for your mind`} description="Find your next puzzle break. Explore six handpicked number, word and logic games, with straightforward instructions and browser play.">
+<section class="welcome"><div><p class="eyebrow">SMALL GAMES. GOOD THINKING.</p><h1>A little play<br/>for your <span>mind.</span></h1></div><div class="welcome-note"><span class="tiny-spark" aria-hidden="true">✳</span><p>Find a pattern. Connect the dots.<br/>Give your day a puzzle break.</p><a href="#puzzles">Find your next puzzle ↘</a></div></section>
+<section id="puzzles" aria-labelledby="collection-title"><div class="section-heading"><h2 id="collection-title">Your next little challenge</h2><span>6 handpicked puzzles</span></div><div class="grid">{games.map((game,i)=><GameCard game={game} index={i}/>)}</div></section>
+<div class="closing-note"><span aria-hidden="true">✦</span><p>A pocket-sized collection. Plenty to think about.</p><a href="/about/">About Pocket Puzzle ↗</a></div>
+</BaseLayout>

@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GameCard from '../../components/GameCard.astro';
+import GamePlayer from '../../components/GamePlayer.astro';
+import { games, isGamePublishable, relatedTo, site } from '../../data/games';
+import editorial from '../../data/editorial.json';
+export function getStaticPaths(){return games.map(game=>({params:{slug:game.slug},props:{game}}));}
+const {game}=Astro.props;const detail=editorial[game.slug as keyof typeof editorial];const canonicalPath=`/games/${game.slug}/`;
+const schema={'@context':'https://schema.org','@type':'VideoGame',name:game.name,description:game.description,url:new URL(canonicalPath,site.url).toString(),genre:'Puzzle',image:game.imageUrl};
+---
+<BaseLayout title={`${game.name} — Play on Pocket Puzzle`} description={game.description} canonicalPath={canonicalPath} noindex={!isGamePublishable(game)} image={game.imageUrl}>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/#puzzles">← All puzzles</a><span>/</span><span>{detail.kind}</span></nav><div class="game-title"><div><p class="eyebrow">{detail.kind.toUpperCase()}</p><h1>{game.name}</h1><p>{detail.short}</p></div><span class="provider-label">By HTMLGames / Zygomatic</span></div>
+<GamePlayer game={game}/><div class="guide-layout"><article class="prose"><h2>A closer look</h2><p>{detail.overview}</p><h2>How to play</h2><p>{detail.how}</p><h2>Think one move ahead</h2><p>{detail.gameplay}</p><h2>Questions, answered</h2>{game.faqs.map(faq=><details><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}<p class="source-note">Game and rules: <a href={game.sourceUrl} target="_blank" rel="noopener noreferrer">HTMLGames ↗</a> · Guide reviewed September 4, 2026.</p></article><aside class="tips-box"><span class="eyebrow">A LITTLE NUDGE</span><h2>Before you begin</h2><p>{game.controls}</p><ul>{game.tips.map(tip=><li>{tip}</li>)}</ul></aside></div>
+<section aria-labelledby="related"><div class="section-heading"><h2 id="related">Another way to play</h2><a href="/#puzzles">All puzzles ↗</a></div><div class="grid">{relatedTo(game).map((item,i)=><GameCard game={item} index={i}/>)}</div></section><script type="application/ld+json" is:inline set:html={JSON.stringify(schema)}/>
+</BaseLayout>

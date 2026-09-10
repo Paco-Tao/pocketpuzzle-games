@@ -1,0 +1,44 @@
+{
+  "daily-sudoku": {
+    "short": "A little logic. A fresh grid.",
+    "kind": "Numbers",
+    "overview": "Daily Sudoku gives a familiar number puzzle a regular place in your day. Its grid uses the digits one through nine, with each digit appearing once in a row, once in a column and once in a three by three box. Four difficulty settings let you choose how much deduction you want to take on. An archive also makes earlier puzzles available.",
+    "gameplay": "Every placement belongs to three groups at the same time: a horizontal row, a vertical column and a smaller square. A number that fits one group can still conflict with another. The challenge is to find values that satisfy all three. Compare the existing digits around an empty cell before deciding what belongs there.",
+    "how": "Choose a difficulty and open a puzzle. Examine a row, column or box that already contains several digits, then identify the missing values. Check the crossing groups to narrow those possibilities. Enter a number only when its position makes sense across the whole grid. Continue from the new information each placement provides, returning to less complete areas as the available choices become clearer."
+  },
+  "daily-nonograms": {
+    "short": "Follow the clues. Find the pattern.",
+    "kind": "Logic",
+    "overview": "Daily Nonograms turns a set of number clues into a visual reasoning exercise. Hints sit alongside the rows and columns, and your job is to work out the pattern they describe. The provider offers daily puzzles in different grid sizes. It is a good choice when you would rather reason about a picture than calculate a numerical answer.",
+    "gameplay": "The important relationship is between a horizontal clue and the vertical clue crossing it. Information gained on one line helps resolve another line, so progress can spread across the board. Work through the hints as a connected system. A plausible looking patch is only useful if it also agrees with the clues in the other direction.",
+    "how": "Open a puzzle and read the instructions inside the game before marking the grid. Pick a row or column whose hints give you a clear starting point. Compare those hints with the available cells and mark only what you can justify. Revisit the intersecting lines after each change. If you become uncertain, move to another part of the board and use its clues to build more information."
+  },
+  "daily-word-search": {
+    "short": "Find your next word of wonder.",
+    "kind": "Words",
+    "overview": "Daily Word Search pairs a letter grid with a list of words to find. Rather than inventing answers, you look for the words the puzzle has already supplied. A new daily level provides a reason to return for another search. This is the word focused choice in the collection, with an objective you can understand at a glance.",
+    "gameplay": "Keep moving between the word list and the letter grid. A matching first letter is a useful lead, but the rest of the spelling needs to match too. Concentrating on one target at a time gives your search a clear direction. As words are found, the remaining list becomes a more focused set of things to look for.",
+    "how": "Open the daily puzzle and read the displayed word list. Choose a word with a spelling you can keep in mind, then examine the grid for its letters. Use the game\u2019s selection controls when you find a matching sequence. Check the result against the list before moving on. Continue looking for the remaining targets until every indicated word has been found in the puzzle."
+  },
+  "daily-bridges": {
+    "short": "Small islands. Clever connections.",
+    "kind": "Logic",
+    "overview": "Daily Bridges is a network puzzle built around numbered islands. Each island needs the number of bridges printed on it, and the finished arrangement connects the islands together. Connections run horizontally or vertically, with at most two bridges between a pair. This gives the collection a different kind of logic challenge: reasoning about how several small requirements fit into one network.",
+    "gameplay": "A bridge contributes to the requirements of the islands at both ends. That makes every connection a shared decision rather than an isolated mark. Compare the number on an island with the neighbors it could connect to. Keep the whole network in mind as you work, because satisfying a nearby number should support the larger arrangement too.",
+    "how": "Inspect the numbered islands and identify potential horizontal or vertical connections. Start with an island whose neighbors make its requirements easier to reason about. Add bridges using the controls shown in the game, remembering that a pair can have no more than two. Count the bridges entering both endpoints after each change. Continue checking local totals while bringing the islands into a connected network that meets the printed numbers."
+  },
+  "1010-sudoku": {
+    "short": "Make room for your next move.",
+    "kind": "Blocks",
+    "overview": "1010 Sudoku combines block placement with the three by three regions associated with Sudoku. You drag shapes onto a grid and aim to fill rows, columns or those smaller regions. The appeal is spatial: a placement changes the room available for the next shape. Choose this when you want to think about how pieces fit together rather than which digit belongs in a cell.",
+    "gameplay": "Each piece occupies several cells, so its effect reaches beyond a single square. A promising position may advance a row while also helping a column or region. Look across the board for places where those opportunities overlap. At the same time, pay attention to the empty spaces left behind and whether they remain useful for placing blocks.",
+    "how": "Look at the available blocks and the open areas of the grid. Drag a block into a place where the whole shape fits. Aim to complete a row, column or three by three region, then examine the resulting board before choosing your next placement. Avoid treating every piece as a separate decision. Think about the spaces that remain and compare a few possible positions before committing to a move."
+  },
+  "traffic-puzzle": {
+    "short": "Untangle the traffic, one car at a time.",
+    "kind": "Logic",
+    "overview": "Traffic Puzzle asks you to solve a traffic arrangement by choosing cars in the correct order. Its premise is immediately visual: study the layout and decide which vehicle should move next. This is the collection\u2019s sequencing option, suited to players who enjoy tracing the consequences of a choice rather than working through a page of number or word clues.",
+    "gameplay": "The puzzle turns the order of your selections into the central question. A car that looks like an obvious choice may depend on a different move first. Study the surrounding arrangement before clicking and watch how the board changes afterward. Use each result to refine your understanding of the sequence instead of selecting vehicles without a plan.",
+    "how": "Open a traffic puzzle and examine the cars shown on the board. Think about which selection could make the next choice possible, then click the car you want to move. Observe the response before continuing. Reconsider the remaining arrangement after every successful step, because the useful order may become clearer as the puzzle opens up. Follow the instructions inside the game if a new layout introduces something unfamiliar."
+  }
+}
