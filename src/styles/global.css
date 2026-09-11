@@ -5,3 +5,11 @@
 @media(max-width:950px) and (orientation:landscape){.player{min-height:300px;height:calc(100svh - 65px);max-height:650px;aspect-ratio:auto}.player-inner{padding:20px}.player-cover{max-height:210px;object-fit:cover}.player-start h2{font-size:24px}}
 
 .player-wrap:fullscreen{display:flex;flex-direction:column;background:#f6f8fc;padding:10px;height:100vh;width:100vw}.player-wrap:fullscreen .player{flex:1;min-height:0;max-height:none;aspect-ratio:auto;width:100%;height:auto}.player-wrap:fullscreen .player-toolbar{flex:none;flex-direction:row;align-items:center;padding:8px}.player-wrap:fullscreen .player-help{display:none}
+
+.ad-slot{display:flex;justify-content:center;align-items:center;margin:26px auto}
+.ad-banner iframe{display:block}
+.ad-banner-320x50{min-height:50px}
+.ad-banner-728x90{display:none}
+.ad-banner-300x250{min-height:250px;margin-top:20px}
+.ad-native{margin:10px auto 30px}
+@media(min-width:800px){.ad-banner-728x90{display:flex;min-height:90px}.ad-banner-320x50{display:none}}

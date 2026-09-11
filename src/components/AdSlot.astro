@@ -1,0 +1,23 @@
+---
+import { ads, type AdUnit } from '../data/ads';
+
+interface Props {
+  unit: AdUnit;
+}
+
+const { unit } = Astro.props;
+const banner = unit === 'native' ? null : ads.banners[unit];
+---
+{banner ? (
+  <div class={`ad-slot ad-banner ad-banner-${unit}`} aria-label="Advertisement">
+    <script is:inline define:vars={{ adKey: banner.key, adWidth: banner.width, adHeight: banner.height }}>
+      atOptions = { key: adKey, format: 'iframe', height: adHeight, width: adWidth, params: {} };
+    </script>
+    <script is:inline src={`https://www.highrevenueformat.com/${banner.key}/invoke.js`}></script>
+  </div>
+) : (
+  <div class="ad-slot ad-native" aria-label="Advertisement">
+    <script is:inline async data-cfasync="false" src={ads.native.src}></script>
+    <div id={ads.native.containerId}></div>
+  </div>
+)}

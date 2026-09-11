@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { site } from '../data/games';
+import { ads } from '../data/ads';
 
 interface Props {
   title: string;
@@ -36,5 +37,6 @@ const canonical = new URL(canonicalPath, site.url).toString();
     <header class="site-header"><div class="shell header-inner"><a class="brand" href="/"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>{site.name}<span class="brand-period">.</span></a><nav aria-label="Primary navigation"><a href="/#puzzles">The puzzles</a><a href="/about/">About</a></nav><span class="header-note">A good kind of screen time.</span></div></header>
     <main class="shell"><slot /></main>
     <footer class="site-footer"><div class="shell footer-inner"><div><a class="footer-brand" href="/">{site.name}.</a><p>© {new Date().getFullYear()} {site.name}. Games by Zygomatic / HTMLGames.</p></div><nav aria-label="Footer navigation"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/copyright/">Game credits</a></nav></div></footer>
+    <script is:inline src={ads.socialBarSrc}></script>
   </body>
 </html>
