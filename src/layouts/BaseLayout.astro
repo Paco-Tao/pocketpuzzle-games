@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import { site } from '../data/games';
 import { ads } from '../data/ads';
+import { analytics } from '../data/analytics';
 
 interface Props {
   title: string;
@@ -32,6 +33,13 @@ const canonical = new URL(canonicalPath, site.url).toString();
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={image} />
     <meta name="twitter:card" content="summary_large_image" />
+    {analytics.ga4MeasurementId && <script async src={`https://www.googletagmanager.com/gtag/js?id=${analytics.ga4MeasurementId}`}></script>}
+    {analytics.ga4MeasurementId && <script define:vars={{ ga4Id: analytics.ga4MeasurementId }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', ga4Id);
+    </script>}
   </head>
   <body>
     <header class="site-header"><div class="shell header-inner"><a class="brand" href="/"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>{site.name}<span class="brand-period">.</span></a><nav aria-label="Primary navigation"><a href="/#puzzles">The puzzles</a><a href="/about/">About</a></nav><span class="header-note">A good kind of screen time.</span></div></header>
